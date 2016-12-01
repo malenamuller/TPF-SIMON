@@ -1,9 +1,8 @@
 #include "allegro_display.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 
-int allegro_main(void)
+
+int allegro_display_main(void)
 
 {
 	ALLEGRO_DISPLAY * display = NULL;
