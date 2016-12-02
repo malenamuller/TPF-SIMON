@@ -9,7 +9,7 @@ int allegro_teclado_main (void)
 	ALLEGRO_TIMER *timer = NULL;
 	ALLEGRO_EVENT ev1;
 	
-	bool key_pressed[11] = { false, false, false, false, false, false, false, false, false, false, false };
+	bool key_pressed[6] = { false, false, false, false, false, false};
 
 	bool redraw = false;
 
@@ -48,41 +48,22 @@ int allegro_teclado_main (void)
 		ALLEGRO_EVENT ev;
 		al_wait_for_event(event_queue, &ev);
 
-		if (ev.type == ALLEGRO_EVENT_TIMER)
+		if (ev.type == ALLEGRO_EVENT_TIMER)		//PONER EN CADA IF LO QUE TIENE QUE HACER (LLAMAR A VALIDACION CON ESA TECLA)
 		{
-			if (key_pressed[KEY_S])
+			if (key_pressed[KEY_SPACE])
 				
 
-			if (key_pressed[KEY_C])
+			if (key_pressed[KEY_UP])
 				
 
-			if (key_pressed[KEY_B])
+			if (key_pressed[KEY_DOWN])
 				
 
-			if (key_pressed[KEY_0])
+			if (key_pressed[KEY_LEFT])
 				
 
-			if (key_pressed[KEY_1])
+			if (key_pressed[KEY_RIGHT])
 				
-
-			if (key_pressed[KEY_2])
-				
-
-			if (key_pressed[KEY_3])
-				
-
-			if (key_pressed[KEY_4])
-				
-
-			if (key_pressed[KEY_5])
-				
-
-			if (key_pressed[KEY_6])
-				
-
-			if (key_pressed[KEY_7])
-				
-
 
 			redraw = true;
 		}
@@ -93,41 +74,23 @@ int allegro_teclado_main (void)
 		else if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
 		{
 			switch (ev.keyboard.keycode) {
-			case ALLEGRO_KEY_S:
-				key_pressed[KEY_S] = true;
+			case ALLEGRO_KEY_SPACE:
+				key_pressed[KEY_SPACE] = true;
 				break;
 
-			case ALLEGRO_KEY_C:
-				key_pressed[KEY_C] = true;
+			case ALLEGRO_KEY_UP:
+				key_pressed[KEY_UP] = true;
 				break;
 
-			case ALLEGRO_KEY_B:
-				key_pressed[KEY_B] = true;
+			case ALLEGRO_KEY_DOWN:
+				key_pressed[KEY_DOWN] = true;
 				break;
 
-			case ALLEGRO_KEY_0:
-				key_pressed[KEY_0] = true;
+			case ALLEGRO_KEY_LEFT:
+				key_pressed[KEY_LEFT] = true;
 				break;
-			case ALLEGRO_KEY_1:
-				key_pressed[KEY_1] = true;
-				break;
-			case ALLEGRO_KEY_2:
-				key_pressed[KEY_2] = true;
-				break;
-			case ALLEGRO_KEY_3:
-				key_pressed[KEY_3] = true;
-				break;
-			case ALLEGRO_KEY_4:
-				key_pressed[KEY_4] = true;
-				break;
-			case ALLEGRO_KEY_5:
-				key_pressed[KEY_5] = true;
-				break;
-			case ALLEGRO_KEY_6:
-				key_pressed[KEY_6] = true;
-				break;
-			case ALLEGRO_KEY_7:
-				key_pressed[KEY_7] = true;
+			case ALLEGRO_KEY_RIGHT:
+				key_pressed[KEY_RIGHT] = true;
 				break;
 			}
 		}
@@ -135,41 +98,22 @@ int allegro_teclado_main (void)
 		else if (ev.type == ALLEGRO_EVENT_KEY_UP)
 		{
 			switch (ev.keyboard.keycode) {
-			case ALLEGRO_KEY_S:
-				key_pressed[KEY_S] = false;
+			case ALLEGRO_KEY_SPACE:
+				key_pressed[KEY_SPACE] = false;
 				break;
 
-			case ALLEGRO_KEY_C:
-				key_pressed[KEY_C] = false;
+			case ALLEGRO_KEY_UP:
+				key_pressed[KEY_UP] = false;
 				break;
 
-			case ALLEGRO_KEY_B:
-				key_pressed[KEY_B] = false;
+			case ALLEGRO_KEY_DOWN:
+				key_pressed[KEY_DOWN] = false;
 				break;
-
-			case ALLEGRO_KEY_0:
-				key_pressed[KEY_0] = false;
+			case ALLEGRO_KEY_LEFT:
+				key_pressed[KEY_LEFT] = false;
 				break;
-			case ALLEGRO_KEY_1:
-				key_pressed[KEY_1] = false;
-				break;
-			case ALLEGRO_KEY_2:
-				key_pressed[KEY_2] = false;
-				break;
-			case ALLEGRO_KEY_3:
-				key_pressed[KEY_3] = false;
-				break;
-			case ALLEGRO_KEY_4:
-				key_pressed[KEY_4] = false;
-				break;
-			case ALLEGRO_KEY_5:
-				key_pressed[KEY_5] = false;
-				break;
-			case ALLEGRO_KEY_6:
-				key_pressed[KEY_6] = false;
-				break;
-			case ALLEGRO_KEY_7:
-				key_pressed[KEY_7] = false;
+			case ALLEGRO_KEY_RIGHT:
+				key_pressed[KEY_RIGHT] = false;
 				break;
 			case ALLEGRO_KEY_ESCAPE:
 				do_exit = true;
@@ -180,7 +124,9 @@ int allegro_teclado_main (void)
 		if (redraw && al_is_event_queue_empty(event_queue)) {
 
 			redraw = false;
+			
 			al_flip_display();
+			//tendria que ir a validacion
 
 		}
 	}
