@@ -59,10 +59,14 @@ int allegro_display_main(void)
 	al_draw_bitmap(simon, 0, 0, 0);
 
 	al_flip_display();		//Actualizo Pantalla
-
+	
+	al_rest(3.0);
+	//al_acknowledge_resize(simon);
+	//al_flip_display();
 	al_rest(3.0);
 
 
+	al_uninstall_system();
 	al_destroy_display(display);
 	al_destroy_bitmap(simon);
 
