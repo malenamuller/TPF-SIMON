@@ -5,9 +5,13 @@
 int allegro_display_main(void)
 
 {
+	const char *title = { "SIMON" };
+	
 	ALLEGRO_DISPLAY * display = NULL;
 
 	ALLEGRO_BITMAP * simon = NULL;
+
+	ALLEGRO_BITMAP *icon = NULL;
 
 //=====================================================================================================
 //		INICIALIZO ALLEGRO, CREO DISPLAY Y CARGO IMAGENES
@@ -35,8 +39,21 @@ int allegro_display_main(void)
 		return -1;
 	}
 
+	icon = al_load_bitmap("simon_icon.png");
+	if (!icon) {
+		fprintf(stderr, "Failed to create icon!\n");
+		al_destroy_display(display);
+		al_destroy_bitmap(simon);
+		return -1;
+	}
+
 //=========================================================================================================
 
+	al_set_window_title(display, title); //Le pongo un titulo al display
+
+	al_set_display_icon(display, icon);  //Icono del programa
+
+//=========================================================================================================
 	al_clear_to_color(al_color_name("white"));	//Fondo Blanco
 
 	al_draw_bitmap(simon, 0, 0, 0);
